@@ -1519,6 +1519,12 @@ EasyMDE.prototype.markdown = function (text) {
             }
         }
 
+        // Modified: expose marked lexer
+        if (this.options && this.options.renderingConfig && this.options.renderingConfig.markedLexer) {
+            
+            marked.Lexer.lex = this.options.renderingConfig.markedLexer;
+        }
+
         // Set options
         marked.setOptions(markedOptions);
 
